@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -52,5 +54,19 @@ public class InterviewRestController {
 			throw new InterviewException(GlobalExceptionController.errMsgFrom(result));
 		}
 		return new ResponseEntity<>(interviewService.add(interview),HttpStatus.OK);
+	}
+	
+	@PutMapping
+	public ResponseEntity<InterviewModel> modifyLoan(@RequestBody @Valid InterviewModel interview,BindingResult result) throws InterviewException{
+		if(result.hasErrors()) {
+			throw new InterviewException(GlobalExceptionController.errMsgFrom(result));
+		}
+		return new ResponseEntity<>(interviewService.save(interview),HttpStatus.OK);
+	}
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Void> deleteInterview(@PathVariable("id")int interviewId) throws InterviewException{
+		interviewService.deleteInterview(interviewId);		
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }
