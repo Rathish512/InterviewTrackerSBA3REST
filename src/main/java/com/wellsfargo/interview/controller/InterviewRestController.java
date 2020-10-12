@@ -49,7 +49,7 @@ public class InterviewRestController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<InterviewModel> createLoan(@RequestBody @Valid InterviewModel interview,BindingResult result) throws InterviewException{
+	public ResponseEntity<InterviewModel> createInterview(@RequestBody @Valid InterviewModel interview,BindingResult result) throws InterviewException{
 		if(result.hasErrors()) {
 			throw new InterviewException(GlobalExceptionController.errMsgFrom(result));
 		}
@@ -57,7 +57,7 @@ public class InterviewRestController {
 	}
 	
 	@PutMapping
-	public ResponseEntity<InterviewModel> modifyLoan(@RequestBody @Valid InterviewModel interview,BindingResult result) throws InterviewException{
+	public ResponseEntity<InterviewModel> modifyInterview(@RequestBody @Valid InterviewModel interview,BindingResult result) throws InterviewException{
 		if(result.hasErrors()) {
 			throw new InterviewException(GlobalExceptionController.errMsgFrom(result));
 		}

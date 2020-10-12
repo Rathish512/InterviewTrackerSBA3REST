@@ -23,14 +23,14 @@ public class UserEntity {
 	private String email;
 	
 	@Column(name="mobile")
-	private Integer mobile;
+	private String mobile;
 	
 	public UserEntity()
 	{
 		
 	}
 
-	public UserEntity(Integer userId, String firstName, String lastName, String email, Integer mobile) {
+	public UserEntity(Integer userId, String firstName, String lastName, String email, String mobile) {
 		super();
 		this.userId = userId;
 		this.firstName = firstName;
@@ -71,11 +71,11 @@ public class UserEntity {
 		this.email = email;
 	}
 
-	public Integer getMobile() {
+	public String getMobile() {
 		return mobile;
 	}
 
-	public void setMobile(Integer mobile) {
+	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
 

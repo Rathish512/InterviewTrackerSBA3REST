@@ -7,6 +7,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
@@ -18,20 +19,17 @@ public class InterviewModel {
 	
 	@NotNull(message = "Interviewer name is mandatory")
 	@NotBlank(message = "Interviewer name is mandatory")
-	@Min(value=5,message = "Interviewer name should be minimum 5 characters")
-	@Max(value=30,message = "Interviewer name cannot be more than 30 characters")
+	@Size(min=5,max=30,message = "Interviewer name should be between 5 to 30 characters")
 	private String interviewerName;
 	
 	@NotNull(message = "Interview name is mandatory")
 	@NotBlank(message = "Interview name is mandatory")
-	@Min(value=3,message = "Interview name should be minimum 3 characters")
-	@Max(value=30,message = "Interview name cannot be more than 30 characters")
+	@Size(min=3,max=30,message = "Interview name should be between 3 to 30 characters")
 	private String interviewName;
 	
 	@NotNull(message = "Users Skills are mandatory")
 	@NotBlank(message = "Users Skills are mandatory")
-	@Min(value=5,message = "Users Skills should be minimum 5 characters")
-	@Max(value=30,message = "Users Skills cannot be more than 30 characters")
+	@Size(min=5,max=30,message = "Users Skills should be between 5 to 30 characters")
 	private String usersSkills;
 	
 	@NotNull(message = "Time is mandatory")
@@ -44,14 +42,12 @@ public class InterviewModel {
 	
 	@NotNull(message = "Interview Status is mandatory")
 	@NotBlank(message = "Interview Status is mandatory")
-	@Min(value=5,message = "Interview Status should be minimum 5 characters")
-	@Max(value=100,message = "Interview Status cannot be more than 100 characters")
+	@Size(min=5,max=100,message = "Interview status should be between 5 to 100 characters")
 	private String interviewStatus;
 	
 	@NotNull(message = "Remarks is mandatory")
 	@NotBlank(message = "Remarks is mandatory")
-	@Min(value=5,message = "Remarks should be minimum 5 characters")
-	@Max(value=100,message = "Remarks cannot be more than 100 characters")
+	@Size(min=5,max=100,message = "Remarks should be between 5 to 100 characters")
 	private String remarks;
 	
 	public InterviewModel()
