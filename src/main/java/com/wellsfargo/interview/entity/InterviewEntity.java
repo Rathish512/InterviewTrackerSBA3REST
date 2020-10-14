@@ -2,10 +2,14 @@ package com.wellsfargo.interview.entity;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -41,6 +45,16 @@ public class InterviewEntity {
 	
 	@Column(name="remarks")
 	private String remarks;
+	
+	@OneToMany(mappedBy = "Interview",cascade = CascadeType.ALL )
+    Set<AttendeeEntity> attendees = new HashSet<>();
+	
+	public Set<AttendeeEntity> getAttendees() {
+		return attendees;
+	}
+	public void setAttendees(Set<AttendeeEntity> attendees) {
+		this.attendees = attendees;
+	}
 	
 	public InterviewEntity()
 	{

@@ -50,7 +50,7 @@ public class InterviewServiceImpl implements InterviewService{
 	public InterviewModel save(InterviewModel interview) throws InterviewException {
 		if(interview!=null) {
 			if(!interviewRepo.existsById(interview.getInterviewId())) {
-				throw new InterviewException("Loan Not Found");
+				throw new InterviewException("Interview Not Found");
 			}
 			
 			interview = toModel(interviewRepo.save(toEntity(interview)));
