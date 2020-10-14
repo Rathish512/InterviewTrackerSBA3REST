@@ -85,4 +85,21 @@ public class InterviewServiceImpl implements InterviewService{
 		return models;
 	}
 
+	@Override
+	public List<InterviewModel> getAllInterviewByName(String name) {
+		List<InterviewModel> models=null;
+		List<InterviewEntity> entities=null;
+		entities=interviewRepo.findAllinterviewName(name);
+		if (entities==null || entities.isEmpty())
+		{
+			System.out.println(entities);
+			entities=interviewRepo.findAllinterviewName(name);
+		}
+		if (entities!=null && !entities.isEmpty()) {
+			models=entities.stream().map(e->toModel(e)).collect(Collectors.toList());
+		}
+		
+		return models;
+	}	
+	
 }

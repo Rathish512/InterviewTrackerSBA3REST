@@ -14,4 +14,7 @@ public interface InterviewService {
 	
 	InterviewModel getInterview(int interviewId);
 	List<InterviewModel> getAllInterviews();
+	
+	List<InterviewModel> getAllInterviewByName(String name);
+	
 }

@@ -33,19 +33,11 @@ public class InterviewRestController {
 		return new ResponseEntity<List<InterviewModel>>(interviewService.getAllInterviews(),HttpStatus.OK);
 	}
 	
-	@GetMapping("/{id}")
-	public ResponseEntity<InterviewModel> getInterview(@PathVariable("id")int interviewId){
-		ResponseEntity<InterviewModel> resp=null;
-		
-		InterviewModel interview = interviewService.getInterview(interviewId);
-		
-		if(interview!=null) {
-			resp =new ResponseEntity<>(interview,HttpStatus.OK);
-		}else {
-			resp =new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-		
-		return resp;
+	@GetMapping("/{InterviewName}")
+	public ResponseEntity<List<InterviewModel>> getAllInterviewsByName(@PathVariable("InterviewName") String name)
+	{
+
+		return new ResponseEntity<List<InterviewModel>>(interviewService.getAllInterviewByName(name),HttpStatus.OK);
 	}
 	
 	@PostMapping
