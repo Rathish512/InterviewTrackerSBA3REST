@@ -17,4 +17,6 @@ public interface InterviewService {
 	
 	List<InterviewModel> getAllInterviewByName(String name);
 	
+	Integer getTotalNoofinterviews();
+	
 }

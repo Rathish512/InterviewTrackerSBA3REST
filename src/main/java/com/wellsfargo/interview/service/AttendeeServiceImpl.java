@@ -70,4 +70,19 @@ public class AttendeeServiceImpl implements AttendeeService {
 		}
 		return attendee;
 	}
+
+	@Override
+	public List<UserEntity> getAllAttendees(int interview) {
+		List<UserEntity> entities=null;
+		InterviewEntity i=interviewRepo.findById(interview).orElse(null);
+		System.out.println(i);
+		if (i!=null)
+		{
+			entities=attendeeRepo.findAllinterviewId(i);
+		}
+			System.out.println(entities);
+		return entities;
+	}
+	
+	
 }

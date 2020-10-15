@@ -40,6 +40,13 @@ public class InterviewRestController {
 		return new ResponseEntity<List<InterviewModel>>(interviewService.getAllInterviewByName(name),HttpStatus.OK);
 	}
 	
+	@GetMapping("/count")
+	public ResponseEntity<String> getAllInterviewsByName()
+	{
+
+		return new ResponseEntity<String>("Total no of interviews are "+interviewService.getTotalNoofinterviews(),HttpStatus.OK);
+	}
+	
 	@PostMapping
 	public ResponseEntity<InterviewModel> createInterview(@RequestBody @Valid InterviewModel interview,BindingResult result) throws InterviewException{
 		if(result.hasErrors()) {

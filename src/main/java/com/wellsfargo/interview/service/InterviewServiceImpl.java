@@ -100,6 +100,12 @@ public class InterviewServiceImpl implements InterviewService{
 		}
 		
 		return models;
-	}	
+	}
+
+	@Override
+	public Integer getTotalNoofinterviews() {
+		return interviewRepo.findAll().size();
+	}
+	
 	
 }

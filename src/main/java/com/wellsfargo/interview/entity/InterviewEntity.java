@@ -48,7 +48,7 @@ public class InterviewEntity {
 	
 	@OneToMany(mappedBy = "Interview",cascade = CascadeType.ALL )
     Set<AttendeeEntity> attendees = new HashSet<>();
-	
+
 	public Set<AttendeeEntity> getAttendees() {
 		return attendees;
 	}
