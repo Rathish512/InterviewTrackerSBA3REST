@@ -46,11 +46,8 @@ public class AttendeeServiceImpl implements AttendeeService {
 			}
 			List<UserEntity> entities=null;
 			entities=attendeeRepo.findAllinterviewId(attendee.getInterview());
-			//entities=attendeedao.findAll();
-			System.out.println(entities.size());
 			for(UserEntity e:entities)
 			{
-				System.out.println(e);
 				if (e.getUserId()==attendee.getUser().getUserId())
 				{
 					throw new InterviewException("User has already been added to this interview");
@@ -75,12 +72,10 @@ public class AttendeeServiceImpl implements AttendeeService {
 	public List<UserEntity> getAllAttendees(int interview) {
 		List<UserEntity> entities=null;
 		InterviewEntity i=interviewRepo.findById(interview).orElse(null);
-		System.out.println(i);
 		if (i!=null)
 		{
 			entities=attendeeRepo.findAllinterviewId(i);
 		}
-			System.out.println(entities);
 		return entities;
 	}
 	

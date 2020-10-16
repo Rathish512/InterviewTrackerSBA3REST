@@ -92,7 +92,6 @@ public class InterviewServiceImpl implements InterviewService{
 		entities=interviewRepo.findAllinterviewName(name);
 		if (entities==null || entities.isEmpty())
 		{
-			System.out.println(entities);
 			entities=interviewRepo.findAllinterviewName(name);
 		}
 		if (entities!=null && !entities.isEmpty()) {
