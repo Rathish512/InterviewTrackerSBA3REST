@@ -22,7 +22,7 @@ import com.wellsfargo.interview.service.AttendeeService;
 
 @RestController
 @RequestMapping("/Attendees")
-public class AttendeeController {
+public class AttendeeRestController {
 
 	@Autowired
 	private AttendeeService attendeeService;
